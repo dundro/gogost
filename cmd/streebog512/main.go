@@ -25,8 +25,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/martinlindhe/gogost"
-	"github.com/martinlindhe/gogost/gost34112012512"
+	"github.com/dundro/gogost"
+	"github.com/dundro/gogost/gost34112012512"
 )
 
 var (

@@ -21,8 +21,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/martinlindhe/gogost/gost28147"
-	"github.com/martinlindhe/gogost/gost341194"
+	"github.com/dundro/gogost/gost28147"
+	"github.com/dundro/gogost/gost341194"
 )
 
 // RFC 4357 VKO GOST R 34.10-2001 key agreement function.

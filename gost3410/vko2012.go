@@ -21,8 +21,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/martinlindhe/gogost/gost34112012256"
-	"github.com/martinlindhe/gogost/gost34112012512"
+	"github.com/dundro/gogost/gost34112012256"
+	"github.com/dundro/gogost/gost34112012512"
 )
 
 // RFC 7836 VKO GOST R 34.10-2012 256-bit key agreement function.

@@ -20,7 +20,7 @@
 package gost34112012256
 
 import (
-	"github.com/martinlindhe/gogost/internal/gost34112012"
+	"github.com/dundro/gogost/internal/gost34112012"
 )
 
 const (

@@ -22,7 +22,7 @@ import (
 	"hash"
 	"testing"
 
-	"github.com/martinlindhe/gogost/gost28147"
+	"github.com/dundro/gogost/gost28147"
 	"golang.org/x/crypto/pbkdf2"
 )
 
