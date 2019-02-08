@@ -104,3 +104,45 @@ func (pub *PublicKey) VerifyDigest(digest, signature []byte) (bool, error) {
 	lm.Mod(lm, pub.c.Q)
 	return lm.Cmp(r) == 0, nil
 }
+func Marshal(mode Mode, x, y *big.Int) []byte {
+
+	byteLen := int(mode)
+
+	ret := make([]byte, 2+2*byteLen)
+	ret[0] = 4 // uncompressed point
+
+	xBytes := x.Bytes()
+	copy(ret[2+byteLen-len(xBytes):], xBytes)
+	yBytes := y.Bytes()
+	copy(ret[2+2*byteLen-len(yBytes):], yBytes)
+	return ret
+}
+
+
+func (pub *PublicKey) Marshal() []byte {
+	
+	byteLen := int(pub.mode)
+
+	ret := make([]byte, 2+2*byteLen)
+	ret[0] = 4 // uncompressed point
+
+	xBytes := pub.x.Bytes()
+	copy(ret[2+byteLen-len(xBytes):], xBytes)
+	yBytes := pub.y.Bytes()
+	copy(ret[2+2*byteLen-len(yBytes):], yBytes)
+	return ret
+}
+
+func Unmarshal(mode Mode, data []byte) (x, y *big.Int) {
+	byteLen := int(mode)
+	if len(data) != 2+2*byteLen {
+		return
+	}
+	if data[0] != 4 { // uncompressed form
+		return
+	}
+
+	x = new(big.Int).SetBytes(data[2 : 2+byteLen])
+	y = new(big.Int).SetBytes(data[2+byteLen:])
+	return
+}
